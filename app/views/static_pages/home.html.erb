@@ -1,0 +1,29 @@
+<div class="large-9 columns">
+  <h1>Feed</h1>
+  <br>
+
+
+    <% @posts.each do |post| %>
+
+      <h2><%= link_to post.title, post %></h2>
+      <p><%= truncate(post.body, :length => 140) %></p>
+      <small>Updated on <%= post.updated_at.to_time.strftime('%B %e, %Y') %></small>
+
+      <small>
+        <%= link_to 'Read More...', post %>
+        <% if signed_in? %>
+          <%= link_to ', Edit, ', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </small>
+      <br>
+      <br>
+      <br>
+      <br>
+    <% end %>
+  <br>
+
+  <% if signed_in? %>
+    <%= link_to 'New Post', new_post_path %>
+  <% end %>
+</div>
