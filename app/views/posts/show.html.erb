@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="large-9 columns">
+  <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @post.title %>
-</h1>
+  <h1>
+    <%= @post.title %>
+  </h1>
 
-<p>
-  <%= @post.body %>
-</p>
+  <%= simple_format @post.body %>
 
-<% if signed_in? %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-<% end %>
-<%= link_to 'Back', posts_path %>
+  <% if signed_in? %>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+  <% end %>
+  <%= link_to 'Back', posts_path, class: "button small" %>
+</div>
+<div class="large-3 columns right">
+  <h3>Recent Posts</h3>
+  <% @posts.each do |post| %>
+    <%= link_to post.title, "#panel#{post.id}" %>
+    <%= content_tag :div, id: "panel#{post.id}", class: "content" do %>
+      <small><%= post.created_at.strftime("%b %d, %Y") %></small>
+      <br>
+      <br>
+    <% end %>
+  <% end %>
+</div>

@@ -9,7 +9,7 @@
         <%= content_tag :div, id: "panel#{post.id}", class: "content" do %>
           <%= truncate(post.body, :length => 140) %>
           <br>
-          <small>last updated on <%= post.updated_at.strftime("%Y-%m-%d at %H:%M") %></small>
+          <small><%= "Last updated on " + post.updated_at.strftime("%b %d, %Y") %></small>
           <br>
           <br>
           <%= link_to 'Read More', post, class: "button tiny" %>
@@ -22,10 +22,9 @@
     <% end %>
   </dl>
 
-
-  <br>
-  <br>
   <% if signed_in? %>
+    <br>
+    <br>
     <%= link_to 'New Post', new_post_path, class: "button small success" %>
   <% end %>
 </div>

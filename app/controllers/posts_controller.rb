@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.order(created_at: :desc).limit(5)
   end
 
   # GET /posts/new
