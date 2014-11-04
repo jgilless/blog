@@ -4,7 +4,7 @@
       <h1><%= link_to "Home", root_path %></h1>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
   </ul>
 
   <section class="top-bar-section">
@@ -28,24 +28,6 @@
       <li>
         <%= link_to "Archive", posts_path %>
       </li>
-      <li class="divider"></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-            <% unless signed_in? %>
-              <li>
-                <%= link_to "Sign In", new_admin_session_path %>
-              </li>
-              <li>
-                <%= link_to "Sign Up", new_admin_registration_path %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "Sign out", destroy_admin_session_path, method: :delete %>
-              </li>
-            <% end %>
-        </ul>
-      </li>
     </ul>
     <!-- Left Nav Section -->
     <% if signed_in? %>
@@ -53,6 +35,10 @@
         <li class="divider"></li>
         <li>
           <%= link_to current_admin.email, edit_admin_registration_path %>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <%= link_to('Logout', destroy_admin_session_path, method: :delete) %>
         </li>
         <li class="divider"></li>
       </ul>

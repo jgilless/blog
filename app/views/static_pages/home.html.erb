@@ -1,4 +1,4 @@
-<div class="large-9 columns">
+<div class="large-6 columns">
   <h1>Feed</h1>
   <br>
 
@@ -12,10 +12,10 @@
           <small><%= "Last updated on " + post.updated_at.strftime("%b %d, %Y") %></small>
           <br>
           <br>
-          <%= link_to 'Read More', post, class: "button tiny" %>
+          <%= link_to 'Read More', post, class: "secondary button tiny" %>
           <% if signed_in? %>
-            <%= link_to 'Edit', edit_post_path(post), class: "button tiny" %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny" %>
+            <%= link_to 'Edit', edit_post_path(post), class: "secondary button tiny" %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "secondary button tiny" %>
           <% end %>
         <% end %>
       </dd>
