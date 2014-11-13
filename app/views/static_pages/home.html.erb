@@ -7,7 +7,7 @@
       <dd class="accordion-navigation">
         <%= link_to post.title, "#panel#{post.id}" %>
         <%= content_tag :div, id: "panel#{post.id}", class: "content" do %>
-          <%= truncate(post.body, :length => 140) %>
+          <%= post.description.to_s %>
           <br>
           <small><%= "Last updated on " + post.updated_at.strftime("%b %d, %Y") %></small>
           <br>
