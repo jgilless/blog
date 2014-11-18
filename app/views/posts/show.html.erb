@@ -27,6 +27,7 @@
 
 </div>
 <div class="large-3 columns right">
+  <%= render 'layouts/about' %>
   <h3>Recent Posts</h3>
   <% @posts.each do |post| %>
     <%= link_to post.title, "#panel#{post.id}" %>
