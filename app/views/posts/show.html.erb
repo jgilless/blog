@@ -30,8 +30,8 @@
   <%= render 'layouts/about' %>
   <h3>Recent Posts</h3>
   <% @posts.each do |post| %>
-    <%= link_to post.title, "#panel#{post.id}" %>
-    <%= content_tag :div, id: "panel#{post.id}", class: "content" do %>
+    <%= link_to post.title, post %>
+    <%= content_tag :div, class: "content" do %>
       <small><%= post.created_at.strftime("%b %d, %Y") %></small>
       <br>
       <br>
