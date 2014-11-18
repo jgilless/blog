@@ -7,7 +7,7 @@ module ApplicationHelper
 	    # (ignored by default)
 	    hard_wrap:       true, 
 	    # hash for extra link options, for example 'nofollow'
-	    link_attributes: { rel: 'nofollow' }
+	    link_attributes: { rel: 'nofollow' },
 	    # more
 	    # will remove <img> tags from output
 	    # no_images: true
@@ -37,9 +37,11 @@ module ApplicationHelper
 	    # will parse strikethrough from ~~, for example: ~~bad~~
 	    strikethrough:      true,
 	    # will parse superscript after ^, you can wrap superscript in () 
-	    superscript:        true
+	    superscript:        true,
 	    # will require a space after # in defining headers
 	    # space_after_headers: true
+	    # Enables parsing of pipes into tables
+	    tables: 						true
 	  }
 	  Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
 	end
